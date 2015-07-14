@@ -55,11 +55,9 @@ RCT_EXPORT_METHOD(getAccelerometerData:(RCTResponseSenderBlock) cb) {
   double z = self->_motionManager.accelerometerData.acceleration.z;
 
   cb(@[[NSNull null], @{
-         @"acceleration": @{
-             @"x" : [NSNumber numberWithDouble:x],
-             @"y" : [NSNumber numberWithDouble:y],
-             @"z" : [NSNumber numberWithDouble:z]
-             }
+           @"x" : [NSNumber numberWithDouble:x],
+           @"y" : [NSNumber numberWithDouble:y],
+           @"z" : [NSNumber numberWithDouble:z],
          }]
      );
 }
@@ -76,11 +74,9 @@ RCT_EXPORT_METHOD(startAccelerometerUpdates) {
      double z = accelerometerData.acceleration.z;
 
      [self.bridge.eventDispatcher sendDeviceEventWithName:@"AccelerationData" body:@{
-      @"acceleration": @{
         @"x" : [NSNumber numberWithDouble:x],
         @"y" : [NSNumber numberWithDouble:y],
         @"z" : [NSNumber numberWithDouble:z]
-      }
       }];
    }];
 
